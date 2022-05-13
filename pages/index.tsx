@@ -101,13 +101,11 @@ const Home: NextPage = () => {
       setUserAddress(ethereum.selectedAddress);
     },
     gsnSend: function () {
-      var {BN, toWei} = web3.utils;
-
       let meta
       saveToken.deployed().then(async function (instance: any) {
       meta = instance
       // await meta.approval(new BN(toWei('10')), {from:userAddress})
-      let amt = BigNumber.from(toWei(formData.sendAmt))
+      let amt = BigNumber.from(utils.parseEther(formData.sendAmt))
       console.log(`typeof sendAmt: ${typeof(formData.sendAmt)} value: ${amt} initValue: ${formData.sendAmt}`)
 
       return await meta.sendTether(formData.sendAddress, amt,

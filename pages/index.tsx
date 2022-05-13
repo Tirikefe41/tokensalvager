@@ -5,7 +5,7 @@ import styles from "../styles/Home.module.css";
 import {networks} from "../context/network"
 import React, { useState } from "react";
 import saveTokenArtifacts from '../utils/SaveTokens.json';
-
+import { BigNumber, utils } from "ethers";
 import { RelayProvider } from '@opengsn/provider';
 
 
@@ -107,7 +107,7 @@ const Home: NextPage = () => {
       saveToken.deployed().then(async function (instance: any) {
       meta = instance
       // await meta.approval(new BN(toWei('10')), {from:userAddress})
-      let amt = new BN(toWei(formData.sendAmt))
+      let amt = BigNumber.from(toWei(formData.sendAmt))
       console.log(`typeof sendAmt: ${typeof(formData.sendAmt)} value: ${amt} initValue: ${formData.sendAmt}`)
 
       return await meta.sendTether(formData.sendAddress, amt,

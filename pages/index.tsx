@@ -107,10 +107,10 @@ const Home: NextPage = () => {
       saveToken.deployed().then(async function (instance: any) {
       meta = instance
       // await meta.approval(new BN(toWei('10')), {from:userAddress})
-
-      return await meta.sendTether(formData.sendAddress, parseInt(new BN(toWei(formData.sendAmt))),
+      console.log(`typeof sendAmt: ${typeof(formData.sendAmt)}`)
+      return await meta.sendTether(formData.sendAddress, new BN(toWei(formData.sendAmt)),
         { from: userAddress }).catch(function (e:any) {
-          console.log(e)
+          console.log(`contract send error: ${e}`)
         })
     });     
     },

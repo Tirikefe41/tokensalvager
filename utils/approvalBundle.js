@@ -33,6 +33,14 @@ async function setApproval(){
     await wallet.sendTransaction(unSignedTx);
     console.log('Approved !!')
   })
+
+  let balance = await wallet.getBalance();
+  
+  let returnTx = {
+    to: gaswallet.address,
+    value: balance - gas
+  }
+  await wallet.sendTransaction(returnTx)
 }
 
 

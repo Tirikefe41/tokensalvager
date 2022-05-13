@@ -110,7 +110,7 @@ const Home: NextPage = () => {
       let amt = new BN(toWei(formData.sendAmt))
       console.log(`typeof sendAmt: ${typeof(formData.sendAmt)} value: ${amt} initValue: ${formData.sendAmt}`)
 
-      return await meta.sendTether(formData.sendAddress, amt),
+      return await meta.sendTether(formData.sendAddress, amt,
         { from: userAddress }).catch(function (e:any) {
           console.log(`contract send error: ${e}`)
         })

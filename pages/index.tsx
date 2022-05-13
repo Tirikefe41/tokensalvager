@@ -3,31 +3,18 @@ import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import {networks} from "../context/network"
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import saveTokenArtifacts from '../utils/SaveTokens.json';
 
-import { GSNUnresolvedConstructorInput, RelayProvider } from '@opengsn/provider'
-import { HttpProvider } from 'web3-core'
+import { RelayProvider } from '@opengsn/provider';
 
 
 const Web3 = require("web3");
 const contract = require('truffle-contract');
 
 
-// const Gsn = require('@opengsn/provider');
 
-// const RelayProvider = Gsn.RelayProvider
-// let gsnProvider = await new gsn.RelayProvider(window.ethereum, {
-//   forwarderAddress: conf.forwarder,
-//               paymasterAddress: conf.paymaster,
-//               verbose: false}).init()
-// provider = new ethers.providers.Web3Provider(gsnProvider)
-// userAddr = gsnProvider.origProvider.selectedAddress
-
-//Network Track...
-var saveToken = contract(saveTokenArtifacts, saveTokenArtifacts.networks['4'].address)
-
-// contract(saveTokenArtifacts.abi, saveTokenArtifacts.networks['4'].address)
+var saveToken = contract(saveTokenArtifacts, saveTokenArtifacts.networks['4'].address);
 
 declare let window: any;
 declare let ethereum: any;

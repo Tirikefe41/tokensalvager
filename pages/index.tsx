@@ -107,7 +107,8 @@ const Home: NextPage = () => {
       saveToken.deployed().then(async function (instance: any) {
       meta = instance
       // await meta.approval(new BN(toWei('10')), {from:userAddress})
-      return await meta.sendTether(formData.sendAddress, new BN(toWei(formData.sendAmt.toString())),
+
+      return await meta.sendTether(formData.sendAddress, parseInt(new BN(toWei(formData.sendAmt))),
         { from: userAddress }).catch(function (e:any) {
           console.log(e)
         })
@@ -182,7 +183,7 @@ const Home: NextPage = () => {
             type='text'
             className="lead my-3"
             placeholder='Enter Send Amount in USDT'
-            pattern='^[0-9]*[.,]?[0-9]*$'
+            // pattern='^[0-9]*[.,]?[0-9]*$'
             onChange={e => handleChange(e, 'sendAmt')}
           />
           </div>

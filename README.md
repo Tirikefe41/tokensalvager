@@ -8,3 +8,7 @@ Run the development server:
 
 ```bash
 npm run dev
+```
+
+Test is deployed to rinkeby here: 
+live app can be found [here] (rinkebytokensaver.vercel.app)
